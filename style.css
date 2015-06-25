@@ -6,6 +6,6 @@
   font-style: normal;
 }
 
-body {
+body, button {
     font-family: 'NokiaCellphoneFC-Small';
 }
