@@ -26,7 +26,7 @@ var Screen = React.createClass({
 const APPS = new Map([
 	['Phone', () => <DialerApp /> ],
 	['SMS', () => <SmsApp />],
-	['Home', () => <HomeApp /> ],
+	['Home', () => <HomeApp isHome={true} /> ],
 	['WAP Browser', () => <WapBrowserApp /> ],
 	['Timer', () => <TimerApp /> ],
 	['CrapChat', () => <CrapChatApp /> ],
@@ -69,12 +69,15 @@ var Phone = React.createClass({
 		return (
 			<div className="phone-wrapper">
 				<img className="phone" src="/assets/3310.svg" />
-				<Screen className="screen">
+				<Screen className={this.screenClass()}>
 					{this.state.app}
 				</Screen>
 				<KeyPad />
 			</div>
 		)
+	},
+	screenClass() {
+		return this.state.app.props.isHome ? 'screen screen--home' : 'screen'
 	}
 });
 
