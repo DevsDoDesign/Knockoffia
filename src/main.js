@@ -10,6 +10,7 @@ import HomeApp from './HomeApp'
 import WapBrowserApp from './WapBrowserApp'
 import TimerApp from './TimerApp'
 import CrapChatApp from './CrapChatApp'
+import HasItBlownOverYetApp from './HasItBlownOverYetApp'
 import CalculatorApp from './CalculatorApp'
 import RingtonesApp from './RingtonesApp'
 
@@ -27,6 +28,7 @@ const APPS = new Map([
 	['WAP Browser', () => <WapBrowserApp /> ],
 	['Timer', () => <TimerApp /> ],
 	['CrapChat', () => <CrapChatApp /> ],
+	['BlownOver', () => <HasItBlownOverYetApp />],
 	['Calculator', () => <CalculatorApp /> ],
 	['Ringtones', () => <RingtonesApp /> ],
 	['Menu', () => <MenuApp apps={[
