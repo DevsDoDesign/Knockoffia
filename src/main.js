@@ -20,10 +20,10 @@ var Screen = React.createClass({
 
 var DialerApp = React.createClass({
 	componentDidMount() {
-		Vent.on('key-pressed', this.keyPressed)
+		Vent.onKeyPressed(this.keyPressed)
 	},
 	componentWillUnmount() {
-		Vent.off('key-pressed', this.keyPressed)
+		Vent.offKeyPressed(this.keyPressed)
 	},
 	getInitialState() {
 		return {
@@ -34,8 +34,9 @@ var DialerApp = React.createClass({
 		switch (key) {
 			case KEYS.UP:
 			case KEYS.DOWN:
+				break;
 			case KEYS.CLEAR:
-				this.clear()
+				this.clear();
 				break;
 			case KEYS.ENTER:
 				alert(`Dialling ${this.state.digits}`);
@@ -64,7 +65,7 @@ var Key = React.createClass({
 		return <button onClick={this.keyPressed}>{this.props.digit}</button>
 	},
 	keyPressed() {
-		Vent.emit('key-pressed', this.props.digit);
+		Vent.keyPressed(this.props.digit);
 	}
 })
 
