@@ -19,7 +19,7 @@ import AlertApp from './AlertApp'
 
 var Screen = React.createClass({
 	render() {
-		return (<div>{this.props.children}</div>)
+		return (<div className={this.props.className}>{this.props.children}</div>)
 	}
 })
 
@@ -67,8 +67,9 @@ var Phone = React.createClass({
 	},
 	render() {
 		return (
-			<div>
-				<Screen>
+			<div className="phone-wrapper">
+				<img className="phone" src="/assets/3310.svg" />
+				<Screen className="screen">
 					{this.state.app}
 				</Screen>
 				<KeyPad />
