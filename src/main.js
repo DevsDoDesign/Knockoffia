@@ -5,6 +5,7 @@ import KEYS from './KEYS'
 import KeyPad from './KeyPad'
 import MenuApp from './MenuApp'
 import DialerApp from './DialerApp'
+import HomeApp from './HomeApp'
 
 
 var Screen = React.createClass({
@@ -23,9 +24,12 @@ var Phone = React.createClass({
 	},
 	componentDidMount() {
 		Vent.onExit(this.exitApp)
+		Vent.onOpenMenuApp(this.menuApp)
 	},
 	exitApp() {
-		console.warn('exiting')
+		this.setState({ app: <HomeApp /> })
+	},
+	menuApp() {
 		this.setState({ app: <MenuApp /> })
 	},
 	render() {

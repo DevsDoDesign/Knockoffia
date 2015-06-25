@@ -10,6 +10,12 @@ export default new class Vent {
 	onExit(cb) {
 		this.on('exit', cb)
 	}
+	openMenuApp() {
+		this.emit('open-menu')
+	}
+	onOpenMenuApp(cb) {
+		this.on('open-menu', cb)
+	}
 
 
 	// KEYS
@@ -20,7 +26,7 @@ export default new class Vent {
 		this.on('key-pressed', cb)
 	}
 	offKeyPressed(cb) {
-		this.on('key-pressed', cb)
+		this.off('key-pressed', cb)
 	}
 
 
