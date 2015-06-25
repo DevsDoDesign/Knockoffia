@@ -18,6 +18,9 @@ export default React.createClass({
 		if (key === KEYS.CLEAR) {
 			Vent.exit()
 		}
+		else if (key === KEYS.ENTER) {
+			this.enter()
+		}
 		else if (key === KEYS.UP) {
 			this.up()
 		}
@@ -29,6 +32,9 @@ export default React.createClass({
 		return (
 			<div>{this.state.currentApp}</div>
 		)
+	},
+	enter() {
+		Vent.openApp(this.state.currentApp)
 	},
 	up() {
 		var nextAppIndex = this.currentAppIndex() + 1;

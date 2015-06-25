@@ -14,31 +14,34 @@ var Screen = React.createClass({
 	}
 })
 
-const APPS = {
-	DIALLER: 'Phone'
-}
+const APPS = new Map([
+	['Phone', () => <DialerApp /> ],
+	['Home', () => <HomeApp /> ],
+	['Menu', () => <MenuApp apps={[
+		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser'
+	]} /> ]
+])
 
 
 var Phone = React.createClass({
 	getInitialState() {
 		return {
-			app: this._makeMenuApp()
+			app: APPS.get('Menu')()
 		}
 	},
 	componentDidMount() {
 		Vent.onExit(this.exitApp)
 		Vent.onOpenMenuApp(this.menuApp)
+		Vent.onOpenApp(this.openApp)
 	},
 	exitApp() {
-		this.setState({ app: <HomeApp /> })
+		this.setState({ app: APPS.get('Home')() })
 	},
 	menuApp() {
-		this.setState({ app: this._makeMenuApp() })
+		this.setState({ app: APPS.get('Menu')() })
 	},
-	_makeMenuApp() {
-		return <MenuApp apps={[
-			'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser'
-		]} />
+	openApp(appName) {
+		this.setState({ app: APPS.get(appName)() })
 	},
 	render() {
 		return (
