@@ -10,6 +10,7 @@ import HomeApp from './HomeApp'
 import WapBrowserApp from './WapBrowserApp'
 import TimerApp from './TimerApp'
 import CrapChatApp from './CrapChatApp'
+import CalculatorApp from './CalculatorApp'
 
 
 var Screen = React.createClass({
@@ -25,8 +26,9 @@ const APPS = new Map([
 	['WAP Browser', () => <WapBrowserApp /> ],
 	['Timer', () => <TimerApp /> ],
 	['CrapChat', () => <CrapChatApp /> ],
+	['Calculator', () => <CalculatorApp /> ],
 	['Menu', () => <MenuApp apps={[
-		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser',
+		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser', 'Calculator',
 	]} /> ]
 ])
 
@@ -34,7 +36,7 @@ const APPS = new Map([
 var Phone = React.createClass({
 	getInitialState() {
 		return {
-			app: APPS.get('Home')()
+			app: APPS.get('CrapChat')()
 		}
 	},
 	componentDidMount() {

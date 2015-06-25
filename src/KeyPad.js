@@ -14,22 +14,28 @@ var Key = React.createClass({
 export default React.createClass({
 	render() {
 		return (
-		<div>
+		<div className="keyPad">
 			<Key digit={KEYS.CLEAR} />
 			<Key digit={KEYS.UP} />
+			<Key digit={KEYS.CLEAR} />
+			<br/>
 			<Key digit={KEYS.DOWN} />
 			<Key digit={KEYS.ENTER} />
-			<Key digit="0" />
+			<br/>
 			<Key digit="1" />
 			<Key digit="2" />
 			<Key digit="3" />
+			<br/>
 			<Key digit="4" />
 			<Key digit="5" />
 			<Key digit="6" />
+			<br/>
 			<Key digit="7" />
 			<Key digit="8" />
 			<Key digit="9" />
+			<br/>
 			<Key digit="#" />
+			<Key digit="0" />
 			<Key digit="*" />
 		</div>
 		)

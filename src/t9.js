@@ -1,61 +1,98 @@
 export function* key2() {
-	yield 'a'
-	yield 'b'
-	yield 'c'
-	yield '2'
+	var letters = ['a', 'b', 'c', '2']
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++]
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key3() {
-	yield 'd'
-	yield 'e'
-	yield 'f'
-	yield '3'
+	var letters = ['d','e','f','3'];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key4() {
-	yield 'g'
-	yield 'h'
-	yield 'i'
-	yield '4'
+	var letters = ['g','h','i','4'];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key5() {
-	yield 'j'
-	yield 'k'
-	yield 'l'
-	yield '5'
+	var letters = ['j','k','l','5'];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key6() {
-	yield 'm'
-	yield 'n'
-	yield 'o'
-	yield '6'
+	var letters = ['m','n','o','6'];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key7() {
-	yield 'p'
-	yield 'q'
-	yield 'r'
-	yield 's'
-	yield '7'
+	var letters = ['p','q','r','s','7'];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key8() {
-	yield 't'
-	yield 'u'
-	yield 'v'
-	yield '8'
+	var letters = ['t','u','v','8']
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key9() {
-	yield 'w'
-	yield 'x'
-	yield 'y'
-	yield 'z'
-	yield '9'
+	var letters = ['w','x','y','z','9']
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
 
 export function* key0() {
-	yield ' '
+	var letters = [' ', 0];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
 }
