@@ -12,7 +12,7 @@ export default React.createClass({
 	},
     getInitialState() {
         return {
-            time: 58,
+            time: 0,
 			intervalId: null,
 			paused: true
         }

@@ -51,7 +51,11 @@ export default React.createClass({
 	},
 	enter() {
 		console.log(this.state.current);
-		(new Audio(`/tones/${TONES.get(this.state.current)}`)).play()
+		let audio = new Audio(`/tones/${TONES.get(this.state.current)}`);
+		setTimeout(function() {
+			console.log('and he said... LET THERE BE SOUND!')
+			audio.play()
+		}, 600)
 	},
 	up() {
 		var nextIndex = this.currentIndex() + 1;

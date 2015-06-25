@@ -26,7 +26,9 @@ var Key = React.createClass({
 		return <button className={this.props.className} onClick={this.keyPressed}>{this.props.digit}</button>
 	},
 	keyPressed() {
-		(new Audio(`/tones/${KEY_SOUNDS.get(this.props.digit)}`)).play();
+		var audio = new Audio(`/tones/${KEY_SOUNDS.get(this.props.digit)}`);
+		audio.volume = .4
+		audio.play();
 		Vent.keyPressed(this.props.digit);
 	}
 })

@@ -46,7 +46,7 @@ const APPS = new Map([
 var Phone = React.createClass({
 	getInitialState() {
 		return {
-			app: APPS.get('Home')()
+			app: APPS.get('Ringtones')()
 		}
 	},
 	componentDidMount() {
