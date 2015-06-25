@@ -13,6 +13,7 @@ import CrapChatApp from './CrapChatApp'
 import HasItBlownOverYetApp from './HasItBlownOverYetApp'
 import CalculatorApp from './CalculatorApp'
 import RingtonesApp from './RingtonesApp'
+import ContactsApp from './ContactsApp'
 
 
 var Screen = React.createClass({
@@ -31,6 +32,7 @@ const APPS = new Map([
 	['Has It Blown Over Yet?', () => <HasItBlownOverYetApp />],
 	['Calculator', () => <CalculatorApp /> ],
 	['Ringtones', () => <RingtonesApp /> ],
+	['Contacts', () => <ContactsApp /> ],
 	['Menu', () => <MenuApp apps={[
 		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser', 'Calculator', 'Ringtones'
 	]} /> ]
