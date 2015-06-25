@@ -46,6 +46,16 @@ export default new class Vent {
 		this.off('contact-picked', cb)
 	}
 
+	// Blown Over
+	blownOverPostcodeEntered(postcode) {
+		this.emit('blown-over-postcode-entered', postcode)
+	}
+	onBlownOverPostcodeEntered(cb) {
+		this.on('blown-over-postcode-entered', cb)
+	}
+	offBlownOverPostcodeEntered(cb) {
+		this.off('blown-over-postcode-entered', cb);
+	}
 
 
 
