@@ -1,3 +1,14 @@
+export function* key1() {
+	var letters = ['1'];
+	var index = 0;
+
+	while (true) {
+		var reset = yield letters[index++];
+
+		if (reset) index = 0;
+	}
+}
+
 export function* key2() {
 	var letters = ['a', 'b', 'c', '2']
 	var index = 0;
