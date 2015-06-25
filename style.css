@@ -63,6 +63,10 @@ body {
 	height: 19%;
 	padding: 10px;
 	font-size: 12px;	
+	background: url(/assets/homescreen.svg);
+	background-position: top left;
+	background-size: contain;
+	background-repeat: no-repeat;
 }
 
 .screen p {
