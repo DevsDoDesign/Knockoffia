@@ -8,6 +8,7 @@ export default React.createClass({
 	},
 	compoentWillUnmount() {
 		Vent.offKeyPressed(this.keyPressed)
+		clearInterval(this.state.intervalId)
 	},
     getInitialState() {
         return {
