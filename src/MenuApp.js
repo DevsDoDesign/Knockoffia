@@ -30,7 +30,10 @@ export default React.createClass({
 	},
 	render() {
 		return (
-			<div>{this.state.currentApp}</div>
+			<div>
+				{this.state.currentApp}
+				<p className="bottom-button">SELECT</p>
+			</div>
 		)
 	},
 	enter() {
