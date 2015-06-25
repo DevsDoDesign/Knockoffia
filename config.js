@@ -21,6 +21,7 @@ System.config({
     "babel-runtime": "npm:babel-runtime@5.6.7",
     "core-js": "npm:core-js@0.9.18",
     "eventemitter": "npm:eventemitter3@1.1.1",
+    "lodash": "npm:lodash@3.9.3",
     "react": "npm:react@0.14.0-alpha3",
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.2.2"
@@ -81,6 +82,9 @@ System.config({
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "process": "github:jspm/nodelibs-process@0.1.1",
       "source-map": "npm:source-map@0.1.31"
+    },
+    "npm:lodash@3.9.3": {
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.1"

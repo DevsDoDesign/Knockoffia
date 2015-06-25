@@ -5,6 +5,7 @@ import KEYS from './KEYS'
 import KeyPad from './KeyPad'
 import MenuApp from './MenuApp'
 import DialerApp from './DialerApp'
+import SmsApp from './SmsApp'
 import HomeApp from './HomeApp'
 import WapBrowserApp from './WapBrowserApp'
 
@@ -17,6 +18,7 @@ var Screen = React.createClass({
 
 const APPS = new Map([
 	['Phone', () => <DialerApp /> ],
+	['SMS', () => <SmsApp />],
 	['Home', () => <HomeApp /> ],
 	['WAP Browser', () => <WapBrowserApp /> ],
 	['Menu', () => <MenuApp apps={[
