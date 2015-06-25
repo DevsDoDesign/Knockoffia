@@ -5,6 +5,34 @@
 }
 
 
+@keyframes bounceInDown {
+  0%, 60%, 75%, 90%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -3000px, 0);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translate3d(0, 25px, 0);
+  }
+
+  75% {
+    transform: translate3d(0, -10px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, 5px, 0);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
 @font-face {
   font-family: 'NokiaCellphoneFC-Small';
   src: url('fonts/NokiaCellphoneFC-Small.eot?#iefix') format('embedded-opentype'),  url('fonts/NokiaCellphoneFC-Small.woff') format('woff'), url('fonts/NokiaCellphoneFC-Small.ttf')  format('truetype'), url('fonts/NokiaCellphoneFC-Small.svg#NokiaCellphoneFC-Small') format('svg');
@@ -47,7 +75,9 @@ body {
 	height: 500px;
 	width: 210px;
 	margin: auto;
-	position: relative;	
+	position: relative;
+	-webkit-animation: bounceInDown;
+	animation: bounceInDown;
 }
 
 .phone {
@@ -62,7 +92,10 @@ body {
 	width: 68%;
 	height: 19%;
 	padding: 10px;
-	font-size: 12px;	
+	font-size: 12px;		
+}
+
+.screen--home {
 	background: url(/assets/homescreen.svg);
 	background-position: top left;
 	background-size: contain;
