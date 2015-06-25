@@ -28,7 +28,7 @@ const APPS = new Map([
 	['WAP Browser', () => <WapBrowserApp /> ],
 	['Timer', () => <TimerApp /> ],
 	['CrapChat', () => <CrapChatApp /> ],
-	['BlownOver', () => <HasItBlownOverYetApp />],
+	['Has It Blown Over Yet?', () => <HasItBlownOverYetApp />],
 	['Calculator', () => <CalculatorApp /> ],
 	['Ringtones', () => <RingtonesApp /> ],
 	['Menu', () => <MenuApp apps={[
