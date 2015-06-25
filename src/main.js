@@ -36,7 +36,7 @@ const APPS = new Map([
 	['Contacts', () => <ContactsApp /> ],
 	['Alert', message => <AlertApp message={message} /> ],
 	['Menu', () => <MenuApp apps={[
-		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser', 'Calculator', 'Ringtones'
+		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'WAP Browser', 'Calculator', 'Ringtones'
 	]} /> ]
 ])
 
