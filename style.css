@@ -102,6 +102,32 @@ body {
 	background-repeat: no-repeat;
 }
 
+
+.time {
+	position: absolute;
+	top: 1%;
+	right: 8%;
+	font-size: 10px;
+}
+
+.home-title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 10px;
+	top: 18%;
+}
+
+.bottom-button {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 10px;
+}
+
 .screen p {
 	margin: 0 0 5px 0;
 }

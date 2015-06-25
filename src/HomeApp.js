@@ -34,9 +34,9 @@ export default React.createClass({
 	render() {
 		return (
 			<div>
-				<p>{this.state.time}</p>
-				<p><strong>#DevsDoDesign</strong></p>
-				<p>MENU</p>
+				<p className="time">{this.state.time}</p>
+				<p className="home-title">#DevsDoDesign</p>
+				<p className="bottom-button">MENU</p>
 			</div>
 		)
 	}
