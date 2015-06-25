@@ -11,8 +11,8 @@ export default React.createClass({
 	},
     getInitialState() {
         return {
-            started: false,
-            time: 58
+            time: 58,
+			intervalId: null
         }
     },
 	keyPressed(key) {
@@ -20,7 +20,17 @@ export default React.createClass({
             this.incrementTime()
 	},
 	incrementTime() {
-		setInterval(this.setTime, 1000)
+		if ( ! this.state.intervalId) {
+			this.setState({
+				intervalId: setInterval(this.setTime, 1000)
+			})
+		}
+		else {
+			clearInterval(this.state.intervalId)
+			this.setState({
+				intervalId: null
+			})
+		}
 	},
 	setTime() {
 		this.setState({
