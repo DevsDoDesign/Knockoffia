@@ -30,3 +30,14 @@ body {
 .crapchat__image .highlighted {
   background: red;
 }
+.keyPad {
+    clear: both;
+}
+
+.calc__operator {
+    float: left;
+}
+
+.calc__answer {
+    float: right;
+}

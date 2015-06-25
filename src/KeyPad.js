@@ -14,7 +14,8 @@ var Key = React.createClass({
 export default React.createClass({
 	render() {
 		return (
-		<div>
+		<div className="keyPad">
+			<Key digit={KEYS.CLEAR} />
 			<Key digit={KEYS.UP} />
 			<Key digit={KEYS.CLEAR} />
 			<br/>
