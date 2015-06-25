@@ -129,7 +129,7 @@ var SmsComposer = React.createClass({
 	},
 
 	send() {
-		fetch(`http://localhost:8081?contact=${this.props.contact}&message=${this.state.msg}`)
+		fetch(`http://danharper.me/twilio/index.php?contact=${this.props.contact}&message=${this.state.msg}`)
 	},
 
 	render() {
