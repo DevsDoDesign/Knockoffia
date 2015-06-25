@@ -4,7 +4,7 @@ import KEYS from './KEYS'
 
 import {contactPickerFirst} from './ContactPickerComponent'
 
-var Drawer React.createClass({
+var Drawer = React.createClass({
 	getInitialState() {
 		return {
 			selected: [0, 0],
