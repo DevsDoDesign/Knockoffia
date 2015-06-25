@@ -15,6 +15,7 @@ import CalculatorApp from './CalculatorApp'
 import RingtonesApp from './RingtonesApp'
 import ContactsApp from './ContactsApp'
 import AlertApp from './AlertApp'
+import SnakeApp from './SnakeApp'
 
 
 var Screen = React.createClass({
@@ -35,8 +36,9 @@ const APPS = new Map([
 	['Ringtones', () => <RingtonesApp /> ],
 	['Contacts', () => <ContactsApp /> ],
 	['Alert', message => <AlertApp message={message} /> ],
+	['Snake', () => <SnakeApp /> ],
 	['Menu', () => <MenuApp apps={[
-		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'WAP Browser', 'Calculator', 'Ringtones'
+		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser', 'Calculator', 'Ringtones', 'Snake',
 	]} /> ]
 ])
 
@@ -73,6 +75,7 @@ var Phone = React.createClass({
 					{this.state.app}
 				</Screen>
 				<KeyPad />
+				<section id="snake"></section>
 			</div>
 		)
 	},
