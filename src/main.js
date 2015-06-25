@@ -36,7 +36,12 @@ var DialerApp = React.createClass({
 			case KEYS.DOWN:
 				break;
 			case KEYS.CLEAR:
-				this.clear();
+				if (this.state.digits) {
+					this.clear();
+				}
+				else {
+					Vent.exit()
+				}
 				break;
 			case KEYS.ENTER:
 				alert(`Dialling ${this.state.digits}`);
@@ -94,12 +99,32 @@ var Keypad = React.createClass({
 	}
 })
 
+var MenuApp = React.createClass({
+	render() {
+		return (
+			<div>APPS HERE!</div>
+		)
+	}
+})
+
 var Phone = React.createClass({
+	getInitialState() {
+		return {
+			app: <DialerApp />
+		}
+	},
+	componentDidMount() {
+		Vent.onExit(this.exitApp)
+	},
+	exitApp() {
+		console.warn('exiting')
+		this.setState({ app: <MenuApp /> })
+	},
 	render() {
 		return (
 			<div>
 				<Screen>
-					<DialerApp />
+					{this.state.app}
 				</Screen>
 				<Keypad />
 			</div>
