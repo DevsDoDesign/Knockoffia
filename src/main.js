@@ -15,7 +15,7 @@ import CalculatorApp from './CalculatorApp'
 
 var Screen = React.createClass({
 	render() {
-		return (<div>{this.props.children}</div>)
+		return (<div className={this.props.className}>{this.props.children}</div>)
 	}
 })
 
@@ -57,7 +57,7 @@ var Phone = React.createClass({
 		return (
 			<div className="phone-wrapper">
 				<img className="phone" src="/assets/3310.svg" />
-				<Screen>
+				<Screen className="screen">
 					{this.state.app}
 				</Screen>
 				<KeyPad />
