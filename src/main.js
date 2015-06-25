@@ -14,6 +14,7 @@ import HasItBlownOverYetApp from './HasItBlownOverYetApp'
 import CalculatorApp from './CalculatorApp'
 import RingtonesApp from './RingtonesApp'
 import ContactsApp from './ContactsApp'
+import AlertApp from './AlertApp'
 
 
 var Screen = React.createClass({
@@ -33,6 +34,7 @@ const APPS = new Map([
 	['Calculator', () => <CalculatorApp /> ],
 	['Ringtones', () => <RingtonesApp /> ],
 	['Contacts', () => <ContactsApp /> ],
+	['Alert', message => <AlertApp message={message} /> ],
 	['Menu', () => <MenuApp apps={[
 		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser', 'Calculator', 'Ringtones'
 	]} /> ]
@@ -49,6 +51,7 @@ var Phone = React.createClass({
 		Vent.onExit(this.exitApp)
 		Vent.onOpenMenuApp(this.menuApp)
 		Vent.onOpenApp(this.openApp)
+		Vent.onAlert(this.showAlert)
 	},
 	exitApp() {
 		this.setState({ app: APPS.get('Home')() })
@@ -58,6 +61,9 @@ var Phone = React.createClass({
 	},
 	openApp(appName) {
 		this.setState({ app: APPS.get(appName)() })
+	},
+	showAlert(message) {
+		this.setState({ app: APPS.get('Alert')(message) })
 	},
 	render() {
 		return (

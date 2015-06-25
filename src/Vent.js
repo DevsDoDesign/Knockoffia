@@ -22,6 +22,12 @@ export default new class Vent {
 	onOpenApp(cb) {
 		this.on('open-app', cb)
 	}
+	alert(message) {
+		this.emit('alert', message)
+	}
+	onAlert(cb) {
+		this.on('alert', cb)
+	}
 
 
 	// KEYS

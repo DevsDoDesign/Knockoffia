@@ -124,8 +124,7 @@ var Drawer = React.createClass({
 		})
 	},
 	send() {
-		alert('Your naughty snap is on it\'s way!')
-		alert('You filthy so-and-so ;)')
+		Vent.alert("Naughty snap deployed; you filthy so-and-so ;)")
 	},
 	render() {
 		return (
