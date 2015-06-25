@@ -14,12 +14,15 @@ var Screen = React.createClass({
 	}
 })
 
+const APPS = {
+	DIALLER: 'Phone'
+}
 
 
 var Phone = React.createClass({
 	getInitialState() {
 		return {
-			app: <DialerApp />
+			app: this._makeMenuApp()
 		}
 	},
 	componentDidMount() {
@@ -30,7 +33,12 @@ var Phone = React.createClass({
 		this.setState({ app: <HomeApp /> })
 	},
 	menuApp() {
-		this.setState({ app: <MenuApp /> })
+		this.setState({ app: this._makeMenuApp() })
+	},
+	_makeMenuApp() {
+		return <MenuApp apps={[
+			'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser'
+		]} />
 	},
 	render() {
 		return (

@@ -9,14 +9,42 @@ export default React.createClass({
 	componentWillUnmount() {
 		Vent.offKeyPressed(this.exit)
 	},
+	getInitialState() {
+		return {
+			currentApp: 'Phone'
+		}
+	},
 	exit(key) {
 		if (key === KEYS.CLEAR) {
 			Vent.exit()
 		}
+		else if (key === KEYS.UP) {
+			this.up()
+		}
+		else if (key === KEYS.DOWN) {
+			this.down()
+		}
 	},
 	render() {
 		return (
-		<div>APPS HERE!</div>
+			<div>{this.state.currentApp}</div>
 		)
+	},
+	up() {
+		var nextAppIndex = this.currentAppIndex() + 1;
+
+		this.setState({
+			currentApp: this.props.apps[nextAppIndex] || this.props.apps[0]
+		})
+	},
+	down() {
+		var prevAppIndex = this.currentAppIndex() - 1;
+
+		this.setState({
+			currentApp: this.props.apps[prevAppIndex] || this.props.apps[this.props.apps.length - 1]
+		})
+	},
+	currentAppIndex() {
+		return this.props.apps.indexOf(this.state.currentApp)
 	}
 })
