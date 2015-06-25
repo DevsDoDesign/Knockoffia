@@ -42,7 +42,7 @@ var SmsComposer = React.createClass({
 				break;
 			case KEYS.ENTER:
 				this.send();
-				this.clear();
+				Vent.alert(`Sent "${this.state.msg}" to "${this.props.contact}"`);
 
 				break;
 			default:
