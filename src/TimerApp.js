@@ -12,17 +12,26 @@ export default React.createClass({
     getInitialState() {
         return {
             started: false,
-            time: 113
+            time: 58
         }
     },
 	keyPressed(key) {
         if (key == KEYS.ENTER)
-            console.log('enter');
-            return;
+            this.incrementTime()
+	},
+	incrementTime() {
+		setInterval(this.setTime, 1000)
+	},
+	setTime() {
+		this.setState({
+			time: this.state.time + 1
+		})
 	},
     calculateTime() {
          var minutes = Math.floor(this.state.time / 60)
          var seconds = this.state.time - minutes * 60
+		
+		if (seconds < 10) seconds = '0' + seconds;
          
          return minutes + ':' + seconds
     },
