@@ -2,7 +2,7 @@ import React from 'react'
 import Vent from './Vent'
 import KEYS from './KEYS'
 
-import ContactPicker from './ContactPickerComponent'
+import {contactPickerFirst} from './ContactPickerComponent'
 
 var Drawer = React.createClass({
 	getInitialState() {
@@ -160,25 +160,6 @@ var Drawer = React.createClass({
 	}
 })
 
-export default React.createClass({
-	getInitialState() {
-		return {
-			screen: <ContactPicker />
-		}
-	},
-	componentDidMount() {
-		Vent.onContactPicked(this.contactPicked)
-	},
-	componentWillUnmount() {
-		Vent.offContactPicked(this.contactPicked)
-	},
-	render() {
-		return this.state.screen
-	},
-	contactPicked() {
-		this.setState({
-			screen: <Drawer />
-		})
-	}
+export default contactPickerFirst(function(contact) {
+	return <Drawer contact={contact} />
 })
-

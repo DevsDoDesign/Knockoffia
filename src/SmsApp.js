@@ -3,8 +3,9 @@ import _ from 'lodash'
 import Vent from './Vent'
 import KEYS from './KEYS'
 import { key2, key3, key4, key5, key6, key7, key8, key9, key0 } from './t9'
+import ContactPicker from './ContactPickerComponent'
 
-export default React.createClass({
+var SmsComposer = React.createClass({
 	componentDidMount() {
 		Vent.onKeyPressed(this.keyPressed)
 
@@ -133,3 +134,11 @@ export default React.createClass({
 		)
 	}
 });
+
+//export default React.createClass({
+//	getInitialState() {
+//
+//	}
+//})
+
+export default SmsComposer

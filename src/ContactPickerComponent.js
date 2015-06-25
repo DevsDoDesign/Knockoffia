@@ -2,7 +2,7 @@ import React from 'react'
 import Vent from './Vent'
 import KEYS from './KEYS'
 
-export default React.createClass({
+var ContactPicker = React.createClass({
 	render() {
 		return (
 		<div>
@@ -66,3 +66,29 @@ export default React.createClass({
 		return this.state.contacts.indexOf(this.state.currentContact)
 	}
 })
+
+export default ContactPicker
+
+export function contactPickerFirst(afterPickerCb) {
+	return React.createClass({
+		getInitialState() {
+			return {
+				screen: <ContactPicker />
+			}
+		},
+		componentDidMount() {
+			Vent.onContactPicked(this.contactPicked)
+		},
+		componentWillUnmount() {
+			Vent.offContactPicked(this.contactPicked)
+		},
+		render() {
+			return this.state.screen
+		},
+		contactPicked(contact) {
+			this.setState({
+				screen: afterPickerCb(contact)
+			})
+		}
+	})
+}
