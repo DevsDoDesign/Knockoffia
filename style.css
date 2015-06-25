@@ -114,8 +114,8 @@ body {
 	width: 210px;
 	margin: auto;
 	position: relative;
-	-webkit-animation: bounceInDown 1s;
-	animation: bounceInDown 1s;
+	-webkit-animation: bounceInDown 0.6s;
+	animation: bounceInDown 0.6s;
 }
 
 .phone {
@@ -321,4 +321,9 @@ button[class^="key--"] {
 	height: 19%;
 	padding: 10px;
 	font-size: 12px;
+}
+
+
+.wap-subline {
+	font-size: 10px;
 }

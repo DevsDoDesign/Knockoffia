@@ -16,7 +16,8 @@ export default React.createClass({
 		return (
 			<div>
 				<p><strong>#DevsDoDesign</strong></p>
-				<p>Kickass projects, from a team of four kickass developers.</p>
+				<p className="wap-subline">Kickass projects, from a team of four kickass developers.</p>
+				<p className="wap-subline">devsdo.design</p>
 			</div>
 		)
 	}
