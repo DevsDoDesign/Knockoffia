@@ -35,6 +35,17 @@ export default new class Vent {
 		this.off('key-pressed', cb)
 	}
 
+	// CRAPCHAT
+	crapChatContactPicked(contact) {
+		this.emit('crapchat-contact-picked', contact)
+	}
+	onCrapChatContactPicked(cb) {
+		this.on('crapchat-contact-picked', cb)
+	}
+	offCrapChatContactPicked(cb) {
+		this.off('crapchat-contact-picked', cb)
+	}
+
 
 
 

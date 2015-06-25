@@ -9,3 +9,20 @@
 body {
     font-family: 'NokiaCellphoneFC-Small';
 }
+
+.crapchat__image {
+  border-collapse: collapse;
+}
+
+.crapchat__image td {
+  width: 1px;
+  height: 1px;
+}
+
+.crapchat__image .on {
+  background: black;
+}
+
+.crapchat__image .off {
+  background: lightgrey;
+}

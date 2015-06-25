@@ -4,17 +4,17 @@ import KEYS from './KEYS'
 
 export default React.createClass({
 	componentDidMount() {
-		Vent.onKeyPressed(this.exit)
+		Vent.onKeyPressed(this.keyPressed)
 	},
 	componentWillUnmount() {
-		Vent.offKeyPressed(this.exit)
+		Vent.offKeyPressed(this.keyPressed)
 	},
 	getInitialState() {
 		return {
 			currentApp: 'Phone'
 		}
 	},
-	exit(key) {
+	keyPressed(key) {
 		if (key === KEYS.CLEAR) {
 			Vent.exit()
 		}
