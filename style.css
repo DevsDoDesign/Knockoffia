@@ -1,3 +1,9 @@
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
 
 @font-face {
   font-family: 'NokiaCellphoneFC-Small';
@@ -7,22 +13,34 @@
 }
 
 body {
-    font-family: 'NokiaCellphoneFC-Small';
+	font-family: 'NokiaCellphoneFC-Small';
 }
 
 .crapchat__image {
-  border-collapse: collapse;
+	border-collapse: collapse;
 }
 
 .crapchat__image td {
-  width: 1px;
-  height: 1px;
+	width: 1px;
+	height: 1px;
 }
 
 .crapchat__image .on {
-  background: black;
+	background: black;
 }
 
 .crapchat__image .off {
-  background: lightgrey;
+	background: lightgrey;
+}
+
+.phone {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+
+
+
+button {
+	background: red !important;
 }

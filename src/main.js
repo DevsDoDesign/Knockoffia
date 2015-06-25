@@ -53,7 +53,8 @@ var Phone = React.createClass({
 	},
 	render() {
 		return (
-			<div>
+			<div className="phone-wrapper">
+				<img className="phone" src="/assets/3310.svg" />
 				<Screen>
 					{this.state.app}
 				</Screen>
