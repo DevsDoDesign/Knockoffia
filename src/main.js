@@ -8,6 +8,7 @@ import DialerApp from './DialerApp'
 import SmsApp from './SmsApp'
 import HomeApp from './HomeApp'
 import WapBrowserApp from './WapBrowserApp'
+import TimerApp from './TimerApp'
 
 
 var Screen = React.createClass({
@@ -21,6 +22,7 @@ const APPS = new Map([
 	['SMS', () => <SmsApp />],
 	['Home', () => <HomeApp /> ],
 	['WAP Browser', () => <WapBrowserApp /> ],
+	['Timer', () => <TimerApp /> ],
 	['Menu', () => <MenuApp apps={[
 		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser',
 	]} /> ]
