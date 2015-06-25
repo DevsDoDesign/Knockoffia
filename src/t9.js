@@ -87,7 +87,7 @@ export function* key9() {
 }
 
 export function* key0() {
-	var letters = [' ', 0];
+	var letters = [' ', '0'];
 	var index = 0;
 
 	while (true) {
