@@ -26,7 +26,7 @@ const APPS = new Map([
 var Phone = React.createClass({
 	getInitialState() {
 		return {
-			app: APPS.get('Menu')()
+			app: APPS.get('Home')()
 		}
 	},
 	componentDidMount() {
