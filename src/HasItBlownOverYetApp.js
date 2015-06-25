@@ -1,11 +1,9 @@
 import React from 'react'
-import _ from 'lodash'
 import Vent from './Vent'
 import KEYS from './KEYS'
 import { key2, key3, key4, key5, key6, key7, key8, key9, key0 } from './t9'
-import {contactPickerFirst} from './ContactPickerComponent'
 
-var SmsComposer = React.createClass({
+var PostcodeEnterer = React.createClass({
 	componentDidMount() {
 		Vent.onKeyPressed(this.keyPressed)
 
@@ -21,7 +19,7 @@ var SmsComposer = React.createClass({
 
 	getInitialState() {
 		return {
-			msg: '',
+			postcode: '',
 			pendingLetter: ''
 		}
 	},
@@ -32,7 +30,7 @@ var SmsComposer = React.createClass({
 			case KEYS.DOWN:
 				break;
 			case KEYS.CLEAR:
-				if (this.state.msg) {
+				if (this.state.postcode) {
 					this.del();
 				}
 				else {
@@ -41,7 +39,7 @@ var SmsComposer = React.createClass({
 
 				break;
 			case KEYS.ENTER:
-				Vent.alert(`Sent "${this.state.msg}" to "${this.props.contact}"`);
+				this.enter();
 				break;
 			default:
 				var letter = this.getLetter(key);
@@ -57,7 +55,7 @@ var SmsComposer = React.createClass({
 				else {
 					this.setState({
 						pendingLetter: letter,
-						msg: this.state.msg + this.state.pendingLetter
+						postcode: this.state.postcode + this.state.pendingLetter
 					})
 				}
 
@@ -68,7 +66,7 @@ var SmsComposer = React.createClass({
 					// Append pending letter to message and remove it
 					this.setState({
 						pendingLetter: '',
-						msg: this.state.msg + this.state.pendingLetter
+						postcode: this.state.postcode + this.state.pendingLetter
 					});
 
 					// Remove previous key - timeout has expired so we should reset. This allows adding of consecutive letters
@@ -94,20 +92,24 @@ var SmsComposer = React.createClass({
 		return val;
 	},
 
+	enter() {
+		Vent.blownOverPostcodeEntered(this.state.postcode);
+	},
+
 	del() {
 		if (this.state.pendingLetter) {
 			this.setState({ pendingLetter: '' });
 		}
 		else {
 			this.setState({
-				msg: this.state.msg.substring(0, this.state.msg.length -1)
+				postcode: this.state.postcode.substring(0, this.state.postcode.length -1)
 			})
 		}
 	},
 
 	clear() {
 		this.setState({
-			msg: '',
+			postcode: '',
 			pendingLetter: ''
 		})
 	},
@@ -128,11 +130,84 @@ var SmsComposer = React.createClass({
 
 	render() {
 		return (
-		<div>Message: {this.state.msg + this.state.pendingLetter}</div>
+		<div>
+			<h3>Add Postcode:</h3>
+			{this.state.postcode + this.state.pendingLetter}
+		</div>
 		)
 	}
 });
 
-export default contactPickerFirst(function(contact) {
-	return <SmsComposer contact={contact} />
-})
+var LevelRater = React.createClass({
+	componentDidMount() {
+		Vent.onKeyPressed(this.keyPressed)
+	},
+	componentWillUnmount() {
+		Vent.offKeyPressed(this.keyPressed)
+	},
+	getInitialState() {
+		return {
+			rating: ''
+		}
+	},
+	keyPressed(key) {
+		switch (key) {
+			case KEYS.UP:
+			case KEYS.DOWN:
+				break;
+			case KEYS.CLEAR:
+				if (this.state.rating) {
+					this.del()
+				}
+				else {
+					Vent.exit()
+				}
+				break;
+			case KEYS.ENTER:
+				alert(`Sending rating ${this.state.rating} for ${this.props.postcode}`)
+				this.clear()
+				break;
+			default:
+				this.setState({ rating: key })
+				break;
+		}
+	},
+	del() {
+		this.setState({
+			rating: this.state.rating.substring(0, this.state.rating.length - 1)
+		})
+	},
+	clear() {
+		this.setState({ rating: '' })
+	},
+	render() {
+		return (
+		<div>
+			<h3>Add a Rating:</h3>
+			{this.state.rating}
+		</div>
+		)
+	}
+});
+
+export default React.createClass({
+	getInitialState() {
+		return {
+			screen: <PostcodeEnterer />
+		}
+	},
+	componentDidMount() {
+		Vent.onBlownOverPostcodeEntered(this.postcodeEntered)
+	},
+	componentWillUnmount() {
+		Vent.offBlownOverPostcodeEntered(this.postcodeEntered)
+	},
+	render() {
+		return this.state.screen
+	},
+	postcodeEntered(postcode) {
+		this.setState({
+			screen: <LevelRater postcode={postcode} />
+		})
+	}
+});

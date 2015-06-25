@@ -22,6 +22,12 @@ export default new class Vent {
 	onOpenApp(cb) {
 		this.on('open-app', cb)
 	}
+	alert(message) {
+		this.emit('alert', message)
+	}
+	onAlert(cb) {
+		this.on('alert', cb)
+	}
 
 
 	// KEYS
@@ -35,17 +41,27 @@ export default new class Vent {
 		this.off('key-pressed', cb)
 	}
 
-	// CRAPCHAT
-	crapChatContactPicked(contact) {
-		this.emit('crapchat-contact-picked', contact)
+	// CONTACTS
+	contactPicked(contact) {
+		this.emit('contact-picked', contact)
 	}
-	onCrapChatContactPicked(cb) {
-		this.on('crapchat-contact-picked', cb)
+	onContactPicked(cb) {
+		this.on('contact-picked', cb)
 	}
-	offCrapChatContactPicked(cb) {
-		this.off('crapchat-contact-picked', cb)
+	offContactPicked(cb) {
+		this.off('contact-picked', cb)
 	}
 
+	// Blown Over
+	blownOverPostcodeEntered(postcode) {
+		this.emit('blown-over-postcode-entered', postcode)
+	}
+	onBlownOverPostcodeEntered(cb) {
+		this.on('blown-over-postcode-entered', cb)
+	}
+	offBlownOverPostcodeEntered(cb) {
+		this.off('blown-over-postcode-entered', cb);
+	}
 
 
 

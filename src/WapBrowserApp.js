@@ -6,11 +6,11 @@ export default React.createClass({
 	componentDidMount() {
 		Vent.onKeyPressed(this.keyPressed)
 	},
-	compoentWillUnmount() {
+	componentWillUnmount() {
 		Vent.offKeyPressed(this.keyPressed)
 	},
 	keyPressed(key) {
-		
+		Vent.exit()
 	},
 	render() {
 		return (

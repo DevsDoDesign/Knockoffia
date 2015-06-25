@@ -2,70 +2,7 @@ import React from 'react'
 import Vent from './Vent'
 import KEYS from './KEYS'
 
-var ContactPicker = React.createClass({
-	render() {
-		return (
-			<div>
-				<h3>Pick Contact:</h3>
-				<p>{this.state.currentContact}</p>
-			</div>
-		)
-	},
-
-	componentDidMount() {
-		Vent.onKeyPressed(this.keyPressed)
-	},
-	componentWillUnmount() {
-		Vent.offKeyPressed(this.keyPressed)
-	},
-
-	keyPressed(key) {
-		if (key === KEYS.CLEAR) {
-			Vent.exit()
-		}
-		else if (key === KEYS.ENTER) {
-			this.enter()
-		}
-		else if (key === KEYS.UP) {
-			this.up()
-		}
-		else if (key === KEYS.DOWN) {
-			this.down()
-		}
-	},
-
-	enter() {
-		Vent.crapChatContactPicked(this.state.currentContact)
-	},
-
-	getInitialState() {
-		return {
-			currentContact: '(None)',
-			contacts: [
-				'(None)', 'Dan Harper', 'Robb Lewis', 'Ed Poole', 'Ali Smith', 'Jimmy Saville', '(ALL CONTACTS)'
-			]
-		}
-	},
-
-	// COPY PASTE FROM MENUAPP; fuck it, hack day
-	up() {
-		var nextContactIndex = this.currentContactIndex() + 1;
-
-		this.setState({
-			currentContact: this.state.contacts[nextContactIndex] || this.state.contacts[0]
-		})
-	},
-	down() {
-		var prevContactIndex = this.currentContactIndex() - 1;
-
-		this.setState({
-			currentContact: this.state.contacts[prevContactIndex] || this.state.contacts[this.state.contacts.length - 1]
-		})
-	},
-	currentContactIndex() {
-		return this.state.contacts.indexOf(this.state.currentContact)
-	}
-})
+import {contactPickerFirst} from './ContactPickerComponent'
 
 var Drawer = React.createClass({
 	getInitialState() {
@@ -166,7 +103,6 @@ var Drawer = React.createClass({
 		this.setState({ selected: [x, y] })
 	},
 	toggle() {
-		console.log('x', this.state.selected)
 		let image = this.state.image
 		let [x, y] = this.state.selected
 		image[x][y] = 1
@@ -188,8 +124,7 @@ var Drawer = React.createClass({
 		})
 	},
 	send() {
-		alert('Your naughty snap is on it\'s way!')
-		alert('You filthy so-and-so ;)')
+		Vent.alert("Naughty snap deployed; you filthy so-and-so ;)")
 	},
 	render() {
 		return (
@@ -224,25 +159,6 @@ var Drawer = React.createClass({
 	}
 })
 
-export default React.createClass({
-	getInitialState() {
-		return {
-			screen: <ContactPicker />
-		}
-	},
-	componentDidMount() {
-		Vent.onCrapChatContactPicked(this.contactPicked)
-	},
-	componentWillUnmount() {
-		Vent.offCrapChatContactPicked(this.contactPicked)
-	},
-	render() {
-		return this.state.screen
-	},
-	contactPicked() {
-		this.setState({
-			screen: <Drawer />
-		})
-	}
+export default contactPickerFirst(function(contact) {
+	return <Drawer contact={contact} />
 })
-
