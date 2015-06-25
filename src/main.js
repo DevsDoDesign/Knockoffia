@@ -50,13 +50,17 @@ var Phone = React.createClass({
 		}
 	},
 	componentDidMount() {
+		Vent.onHome(this.goHome)
 		Vent.onExit(this.exitApp)
 		Vent.onOpenMenuApp(this.menuApp)
 		Vent.onOpenApp(this.openApp)
 		Vent.onAlert(this.showAlert)
 	},
-	exitApp() {
+	goHome() {
 		this.setState({ app: APPS.get('Home')() })
+	},
+	exitApp() {
+		this.setState({ app: APPS.get('Menu')() })
 	},
 	menuApp() {
 		this.setState({ app: APPS.get('Menu')() })

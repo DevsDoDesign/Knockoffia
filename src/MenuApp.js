@@ -16,7 +16,7 @@ export default React.createClass({
 	},
 	keyPressed(key) {
 		if (key === KEYS.CLEAR) {
-			Vent.exit()
+			Vent.home()
 		}
 		else if (key === KEYS.ENTER) {
 			this.enter()

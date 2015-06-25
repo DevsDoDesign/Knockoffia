@@ -4,6 +4,12 @@ export default new class Vent {
 
 	// OS LEVEL
 
+	home() {
+		this.emit('home')
+	}
+	onHome(cb) {
+		this.on('home', cb)
+	}
 	exit() {
 		this.emit('exit')
 	}
