@@ -2,11 +2,31 @@ import React from 'react'
 import Vent from './Vent'
 import KEYS from './KEYS'
 
+const KEY_SOUNDS = new Map([
+	[KEYS.CLEAR, 'cancel.mp3'],
+	[KEYS.DOWN, 'BoopLow.mp3'],
+	[KEYS.UP, 'Boop.mp3'],
+	[KEYS.ENTER, 'enter.mp3'],
+	[KEYS.HASH, '1.mp3'],
+	[KEYS.STAR, '1.mp3'],
+	['0', '0.mp3'],
+	['1', '1.mp3'],
+	['2', '2.mp3'],
+	['3', '3.mp3'],
+	['4', '4.mp3'],
+	['5', '5.mp3'],
+	['6', '6.mp3'],
+	['7', '7.mp3'],
+	['8', '8.mp3'],
+	['9', '9.mp3'],
+])
+
 var Key = React.createClass({
 	render() {
 		return <button className={this.props.className} onClick={this.keyPressed}>{this.props.digit}</button>
 	},
 	keyPressed() {
+		(new Audio(`/tones/${KEY_SOUNDS.get(this.props.digit)}`)).play();
 		Vent.keyPressed(this.props.digit);
 	}
 })
