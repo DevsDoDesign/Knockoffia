@@ -2,6 +2,7 @@
   "jspm": {
     "directories": {},
     "dependencies": {
+      "eventemitter": "npm:eventemitter3@^1.1.1",
       "react": "npm:react@^0.14.0-alpha3"
     },
     "devDependencies": {

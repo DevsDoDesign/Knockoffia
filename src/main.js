@@ -1,15 +1,70 @@
 import React from 'react'
+import Vent from './Vent'
+
+const KEYS = {
+	CLEAR: 'C',
+	UP: 'U',
+	DOWN: 'D',
+	ENTER: 'E'
+}
 
 
 var Screen = React.createClass({
+	componentDidMount() {
+		console.log(this.props.children)
+	},
 	render() {
-		return <strong>Hello :D</strong>
+		return (<div>{this.props.children}</div>)
 	}
 })
 
+var DialerApp = React.createClass({
+	componentDidMount() {
+		Vent.on('key-pressed', this.keyPressed)
+	},
+	componentWillUnmount() {
+		Vent.off('key-pressed', this.keyPressed)
+	},
+	getInitialState() {
+		return {
+			digits: ''
+		}
+	},
+	keyPressed(key) {
+		switch (key) {
+			case KEYS.UP:
+			case KEYS.DOWN:
+			case KEYS.CLEAR:
+				this.clear()
+				break;
+			case KEYS.ENTER:
+				alert(`Dialling ${this.state.digits}`);
+				this.clear();
+				break;
+			default:
+				this.setState({
+					digits: this.state.digits += key
+				});
+				break;
+		}
+	},
+	clear() {
+		this.setState({ digits: '' })
+	},
+	render() {
+		return (
+			<div>Dialed: {this.state.digits}</div>
+		)
+	}
+})
+
+
 var Key = React.createClass({
 	render() {
-		return <button>{this.props.digit}</button>
+		return <button onClick={this.keyPressed}>{this.props.digit}</button>
+	},
+	keyPressed() {
+		Vent.emit('key-pressed', this.props.digit);
 	}
 })
 
@@ -17,6 +72,10 @@ var Keypad = React.createClass({
 	render() {
 		return (
 			<div>
+				<Key digit={KEYS.CLEAR} />
+				<Key digit={KEYS.UP} />
+				<Key digit={KEYS.DOWN} />
+				<Key digit={KEYS.ENTER} />
 				<Key digit="0" />
 				<Key digit="1" />
 				<Key digit="2" />
@@ -38,7 +97,9 @@ var Phone = React.createClass({
 	render() {
 		return (
 			<div>
-				<Screen />
+				<Screen>
+					<DialerApp />
+				</Screen>
 				<Keypad />
 			</div>
 		)

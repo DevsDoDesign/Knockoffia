@@ -20,6 +20,7 @@ System.config({
     "babel": "npm:babel-core@5.6.7",
     "babel-runtime": "npm:babel-runtime@5.6.7",
     "core-js": "npm:core-js@0.9.18",
+    "eventemitter": "npm:eventemitter3@1.1.1",
     "react": "npm:react@0.14.0-alpha3",
     "github:jspm/nodelibs-buffer@0.1.0": {
       "buffer": "npm:buffer@3.2.2"
