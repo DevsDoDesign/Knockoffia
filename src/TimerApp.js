@@ -12,23 +12,39 @@ export default React.createClass({
     getInitialState() {
         return {
             time: 58,
-			intervalId: null
+			intervalId: null,
+			paused: true
         }
     },
 	keyPressed(key) {
         if (key == KEYS.ENTER)
             this.incrementTime()
+		if (key == KEYS.CLEAR) {
+			if (this.state.time == 0) {
+				Vent.exit()
+			}
+			else {
+				clearInterval(this.state.intervalId)
+				this.setState({
+					paused: true,
+					time: 0
+				})
+			}
+		}
 	},
 	incrementTime() {
 		if ( ! this.state.intervalId) {
+			this.setTime()
 			this.setState({
-				intervalId: setInterval(this.setTime, 1000)
+				intervalId: setInterval(this.setTime, 1000),
+				paused: false
 			})
 		}
 		else {
 			clearInterval(this.state.intervalId)
 			this.setState({
-				intervalId: null
+				intervalId: null,
+				paused: true
 			})
 		}
 	},
