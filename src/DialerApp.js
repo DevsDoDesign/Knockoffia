@@ -28,8 +28,7 @@ export default React.createClass({
 				}
 				break;
 			case KEYS.ENTER:
-				alert(`Dialling ${this.state.digits}`);
-				this.clear();
+				Vent.alert(`Dialling... ${this.state.digits}`);
 				break;
 			default:
 				this.setState({

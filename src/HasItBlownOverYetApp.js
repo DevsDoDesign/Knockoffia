@@ -164,8 +164,7 @@ var LevelRater = React.createClass({
 				}
 				break;
 			case KEYS.ENTER:
-				alert(`Sending rating ${this.state.rating} for ${this.props.postcode}`)
-				this.clear()
+				Vent.alert(`Zombie rating "${this.state.rating}" @ "${this.props.postcode}"`)
 				break;
 			default:
 				this.setState({ rating: key })
