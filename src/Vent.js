@@ -16,6 +16,12 @@ export default new class Vent {
 	onOpenMenuApp(cb) {
 		this.on('open-menu', cb)
 	}
+	openApp(app) {
+		this.emit('open-app', app)
+	}
+	onOpenApp(cb) {
+		this.on('open-app', cb)
+	}
 
 
 	// KEYS

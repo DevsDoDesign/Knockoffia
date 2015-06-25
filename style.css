@@ -1,0 +1,11 @@
+
+@font-face {
+  font-family: 'NokiaCellphoneFC-Small';
+  src: url('fonts/NokiaCellphoneFC-Small.eot?#iefix') format('embedded-opentype'),  url('fonts/NokiaCellphoneFC-Small.woff') format('woff'), url('fonts/NokiaCellphoneFC-Small.ttf')  format('truetype'), url('fonts/NokiaCellphoneFC-Small.svg#NokiaCellphoneFC-Small') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+    font-family: 'NokiaCellphoneFC-Small';
+}

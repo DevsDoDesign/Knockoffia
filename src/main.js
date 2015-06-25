@@ -6,6 +6,7 @@ import KeyPad from './KeyPad'
 import MenuApp from './MenuApp'
 import DialerApp from './DialerApp'
 import HomeApp from './HomeApp'
+import WapBrowserApp from './WapBrowserApp'
 
 
 var Screen = React.createClass({
@@ -14,23 +15,35 @@ var Screen = React.createClass({
 	}
 })
 
+const APPS = new Map([
+	['Phone', () => <DialerApp /> ],
+	['Home', () => <HomeApp /> ],
+	['WAP Browser', () => <WapBrowserApp /> ],
+	['Menu', () => <MenuApp apps={[
+		'Phone', 'SMS', 'Contacts', 'CrapChat', 'Has It Blown Over Yet?', 'Timer', 'Clock', 'WAP Browser',
+	]} /> ]
+])
 
 
 var Phone = React.createClass({
 	getInitialState() {
 		return {
-			app: <DialerApp />
+			app: APPS.get('Home')()
 		}
 	},
 	componentDidMount() {
 		Vent.onExit(this.exitApp)
 		Vent.onOpenMenuApp(this.menuApp)
+		Vent.onOpenApp(this.openApp)
 	},
 	exitApp() {
-		this.setState({ app: <HomeApp /> })
+		this.setState({ app: APPS.get('Home')() })
 	},
 	menuApp() {
-		this.setState({ app: <MenuApp /> })
+		this.setState({ app: APPS.get('Menu')() })
+	},
+	openApp(appName) {
+		this.setState({ app: APPS.get(appName)() })
 	},
 	render() {
 		return (
