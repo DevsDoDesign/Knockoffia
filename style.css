@@ -88,7 +88,19 @@ body {
 	background: #B7C38E;
 }
 
+#devsdodesign {
+	position: absolute;
+	top: 40px;
+	right: 40px;
+	font-size: 14px;
+	font-family: helvetica, sans-serif;
+	color: white;
+	font-weight: 100;
+}
 
+#devsdodesign span {
+	opacity: 0.6;
+}
 
 .crapchat__image .highlighted {
   background: #000000;
