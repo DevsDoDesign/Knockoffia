@@ -89,10 +89,11 @@ body {
 }
 
 #devsdodesign {
-	position: absolute;
-	top: 40px;
+	margin: 0 auto;
+	text-align: center;
+	margin-top: 100px;
 	right: 40px;
-	font-size: 14px;
+	font-size: 20px;
 	font-family: helvetica, sans-serif;
 	color: white;
 	font-weight: 100;
@@ -397,4 +398,20 @@ button[class^="key--"] {
     box-shadow: 0 -2em #ffffff;
     height: 5em;
   }
+}
+
+#fork {
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	font-size: 12px;
+}
+
+#fork a {
+	color: white;
+	text-decoration: none;
+}
+
+#fork a:hover {
+	cursor: pointer;
 }
