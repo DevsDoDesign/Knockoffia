@@ -8,4 +8,4 @@ A [#DevsDoDesign](http://twitter.com/devsdodesign) Production. Brewed at [#PubHa
 
 ---
 
-by Dan Harper, Ed Poole, Ali Smith and Robb Lewis
+by Dan Harper, Ed Poole, Ali Smith and Robb Knight
